@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
+    public function agreement()
+    {
+        return $this->hasOne(Agreement::class);
+    }
 }

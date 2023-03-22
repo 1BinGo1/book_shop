@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     use HasFactory;
+
+    public function person()
+    {
+        return $this->belongsTo(Person::class);
+    }
+
+    public function position()
+    {
+        return $this->belongsTo(Position::class);
+    }
+
+    public function agreements()
+    {
+        return $this->hasMany(Agreement::class);
+    }
 }
