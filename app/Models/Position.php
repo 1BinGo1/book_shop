@@ -11,6 +11,16 @@ class Position extends Model
 
     protected $table = "positions";
 
+    protected $appends = [
+        'employees'
+    ];
+
+    protected $visible = [
+        'id',
+        'title',
+        'salary'
+    ];
+
     public function employees()
     {
         return $this->hasMany(Employee::class);

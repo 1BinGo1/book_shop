@@ -11,6 +11,22 @@ class Employee extends Model
 
     protected $table = "employees";
 
+    protected $appends = [
+        'person',
+        'position',
+        'agreements'
+    ];
+
+    protected $visible = [
+        'id',
+        'person_id',
+        'position_id',
+        'experience',
+        'premium',
+        'date_hire',
+        'requisites'
+    ];
+
     public function person()
     {
         return $this->belongsTo(Person::class);

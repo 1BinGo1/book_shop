@@ -11,6 +11,19 @@ class Agreement extends Model
 
     protected $table = "agreements";
 
+    protected $appends = [
+        'employee',
+        'order'
+    ];
+
+    protected $visible = [
+        'id',
+        'employee_id',
+        'order_id',
+        'date_of_registration',
+        'comment'
+    ];
+
     public function employee()
     {
         return $this->belongsTo(Employee::class);

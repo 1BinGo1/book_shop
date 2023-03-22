@@ -11,6 +11,22 @@ class Book extends Model
 
     protected $table = "books";
 
+    protected $appends = [
+        'orders',
+    ];
+
+    protected $visible = [
+        'id',
+        'title',
+        'genre',
+        'authors',
+        'publishing_house',
+        'year_of_publishing',
+        'price',
+        'count_in_stock',
+        'count_pages'
+    ];
+
     public function orders()
     {
         return $this->hasMany(Order::class);

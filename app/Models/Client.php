@@ -11,6 +11,18 @@ class Client extends Model
 
     protected $table = "clients";
 
+    protected $appends = [
+        'person',
+        'orders'
+    ];
+
+    protected $visible = [
+        'id',
+        'person_id',
+        'vip_status',
+        'comment'
+    ];
+
     public function person()
     {
         return $this->belongsTo(Person::class);
