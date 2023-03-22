@@ -9,6 +9,8 @@ class Person extends Model
 {
     use HasFactory;
 
+    protected $table = "persons";
+
     public function client()
     {
         return $this->hasOne(Client::class);

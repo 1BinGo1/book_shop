@@ -9,6 +9,8 @@ class Book extends Model
 {
     use HasFactory;
 
+    protected $table = "books";
+
     public function orders()
     {
         return $this->hasMany(Order::class);

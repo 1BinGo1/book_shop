@@ -9,6 +9,8 @@ class Agreement extends Model
 {
     use HasFactory;
 
+    protected $table = "agreements";
+
     public function employee()
     {
         return $this->belongsTo(Employee::class);

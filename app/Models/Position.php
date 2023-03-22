@@ -9,6 +9,8 @@ class Position extends Model
 {
     use HasFactory;
 
+    protected $table = "positions";
+
     public function employees()
     {
         return $this->hasMany(Employee::class);
