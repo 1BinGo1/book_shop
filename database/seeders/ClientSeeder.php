@@ -2,22 +2,22 @@
 
 namespace Database\Seeders;
 
+use App\Models\Client;
+use App\Models\Person;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class ClientSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        /*$this->call([
-            UserSeeder::class,
-            PostSeeder::class,
-            CommentSeeder::class,
-        ]);*/
+        Client::factory()
+            ->count(10)
+            ->create();
     }
 }
