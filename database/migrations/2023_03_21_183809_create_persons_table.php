@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("surname", 50)->nullable();
             $table->string("name", 50)->nullable();
             $table->string("patronymic", 50)->nullable();
-            $table->string("phone", 11)->nullable();
+            $table->string("phone", 20)->nullable();
             $table->date("date_of_birth")->nullable();
             $table->string("email", 255);
             $table->string("password", 255);

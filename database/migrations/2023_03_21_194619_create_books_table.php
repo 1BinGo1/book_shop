@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('genre', 255);
             $table->text('authors');
             $table->text('publishing_house');
-            $table->date('year of publishing');
+            $table->date('year_of_publishing');
             $table->float('price', 8,2);
             $table->integer('count_in_stock');
             $table->integer('count_pages');

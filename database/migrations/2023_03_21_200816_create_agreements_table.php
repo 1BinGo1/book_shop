@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('employee_id');
             $table->foreign('employee_id', 'agreements_employee_id_foreign')
-                ->references('person_id')
-                ->on('clients')
+                ->references('id')
+                ->on('employees')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->unsignedBigInteger('order_id');
@@ -27,7 +27,8 @@ return new class extends Migration
                 ->on('orders')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->dateTime('date of registration');
+            $table->unique('order_id', 'agreements_order_id_unique');
+            $table->dateTime('date_of_registration');
             $table->text('comment')->nullable();
             $table->timestamps();
         });
