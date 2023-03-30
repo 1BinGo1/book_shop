@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Person extends Model
 {
@@ -26,8 +27,22 @@ class Person extends Model
         'email',
     ];
 
+    protected $fillable = [
+        'surname',
+        'name',
+        'patronymic',
+        'phone',
+        'date_of_birth',
+        'email',
+        'password'
+    ];
+
     protected $hidden = [
         'password'
+    ];
+
+    protected $casts = [
+        'date_of_birth' => 'datetime:d-m-Y',
     ];
 
     public function client()
@@ -38,5 +53,9 @@ class Person extends Model
     public function employee()
     {
         return $this->hasOne(Employee::class);
+    }
+
+    public function setDateOfBirthAttribute($value){
+        $this->attributes['date_of_birth'] = Carbon::parse($value)->format('Y-m-d');
     }
 }
