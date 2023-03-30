@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Person;
+use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -22,6 +23,7 @@ class PersonFactory extends Factory
     public function definition()
     {
         return [
+            'role_id' => Role::factory(),
             'surname' => $this->faker->lastName(),
             'name' => $this->faker->firstName(),
             'patronymic' => $this->faker->name(),

@@ -14,7 +14,8 @@ class Person extends Model
 
     protected $appends = [
         'client',
-        'employee'
+        'employee',
+        'role'
     ];
 
     protected $visible = [
@@ -53,6 +54,11 @@ class Person extends Model
     public function employee()
     {
         return $this->hasOne(Employee::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
     }
 
     public function setDateOfBirthAttribute($value){
