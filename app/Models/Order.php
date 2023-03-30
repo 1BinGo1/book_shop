@@ -31,6 +31,19 @@ class Order extends Model
         'comment'
     ];
 
+    protected $fillable = [
+        'client_id',
+        'book_id',
+        'date_order',
+        'count_books',
+        'date_delivery',
+        'type_delivery',
+        'price_delivery',
+        'price_order',
+        'address_delivery',
+        'comment'
+    ];
+
     public function book()
     {
         return $this->belongsTo(Book::class);

@@ -24,6 +24,13 @@ class Agreement extends Model
         'comment'
     ];
 
+    protected $fillable = [
+        'employee_id',
+        'order_id',
+        'date_of_registration',
+        'comment'
+    ];
+
     public function employee()
     {
         return $this->belongsTo(Employee::class);

@@ -20,6 +20,7 @@ class Person extends Model
 
     protected $visible = [
         'id',
+        'role_id',
         'surname',
         'name',
         'patronymic',
@@ -29,6 +30,7 @@ class Person extends Model
     ];
 
     protected $fillable = [
+        'role_id',
         'surname',
         'name',
         'patronymic',

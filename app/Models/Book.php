@@ -27,6 +27,17 @@ class Book extends Model
         'count_pages'
     ];
 
+    protected $fillable = [
+        'title',
+        'genre',
+        'authors',
+        'publishing_house',
+        'year_of_publishing',
+        'price',
+        'count_in_stock',
+        'count_pages'
+    ];
+
     public function orders()
     {
         return $this->hasMany(Order::class);

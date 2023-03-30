@@ -23,6 +23,13 @@ class Client extends Model
         'comment'
     ];
 
+    protected $fillable = [
+        'title',
+        'person_id',
+        'vip_status',
+        'comment'
+    ];
+
     public function person()
     {
         return $this->belongsTo(Person::class);

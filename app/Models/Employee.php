@@ -27,6 +27,15 @@ class Employee extends Model
         'requisites'
     ];
 
+    protected $fillable = [
+        'person_id',
+        'position_id',
+        'experience',
+        'premium',
+        'date_hire',
+        'requisites'
+    ];
+
     public function person()
     {
         return $this->belongsTo(Person::class);
