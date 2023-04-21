@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
@@ -24,7 +25,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'role_id',
+        'surname',
         'name',
+        'patronymic',
+        'phone',
+        'date_of_birth',
         'email',
         'password',
     ];
@@ -48,6 +54,19 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'date_of_birth' => 'datetime:d-m-Y'
+    ];
+
+    protected $visible = [
+        'id',
+        'role_id',
+        'surname',
+        'name',
+        'patronymic',
+        'phone',
+        'date_of_birth',
+        'email',
+        'password',
     ];
 
     /**
@@ -57,5 +76,27 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
+        'client',
+        'employee',
+        'role'
     ];
+
+    public function client()
+    {
+        return $this->hasOne(Client::class);
+    }
+
+    public function employee()
+    {
+        return $this->hasOne(Employee::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function setDateOfBirthAttribute($value){
+        $this->attributes['date_of_birth'] = Carbon::parse($value)->format('Y-m-d');
+    }
 }

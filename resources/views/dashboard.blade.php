@@ -1,8 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
+        <div class="flex">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight mr-5">
+                {{ __('Dashboard') }}
+            </h2>
+            <a href="{{ route('users.index') }}" class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Users</a>
+        </div>
     </x-slot>
 
     <div class="py-12">

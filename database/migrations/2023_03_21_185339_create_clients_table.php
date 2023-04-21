@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('person_id');
-            $table->foreign('person_id', 'clients_person_id_foreign')
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id', 'clients_user_id_foreign')
                 ->references('id')
-                ->on('persons')
+                ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->unique('person_id', 'clients_person_id_unique');
+            $table->unique('user_id', 'clients_user_id_unique');
             $table->boolean('vip_status')->default(false)->nullable();
             $table->text("comment");
             $table->timestamps();

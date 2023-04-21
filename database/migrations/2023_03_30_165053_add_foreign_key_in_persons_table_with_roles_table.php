@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('persons', function (Blueprint $table) {
-            $table->unsignedBigInteger('role_id')->after('id')->nullable()->default(null);
-            $table->foreign('role_id', 'persons_role_id_foreign')
-                ->references('id')
-                ->on('roles')
-                ->onUpdate('cascade')
-                ->nullOnDelete();
-        });
+//        Schema::table('persons', function (Blueprint $table) {
+//            $table->unsignedBigInteger('role_id')->after('id')->nullable()->default(null);
+//            $table->foreign('role_id', 'persons_role_id_foreign')
+//                ->references('id')
+//                ->on('roles')
+//                ->onUpdate('cascade')
+//                ->nullOnDelete();
+//        });
     }
 
     /**
@@ -30,9 +30,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('persons', function (Blueprint $table) {
-            $table->dropForeign('persons_role_id_foreign');
-            $table->dropColumn('role_id');
-        });
+//        Schema::table('persons', function (Blueprint $table) {
+//            $table->dropForeign('persons_role_id_foreign');
+//            $table->dropColumn('role_id');
+//        });
     }
 };

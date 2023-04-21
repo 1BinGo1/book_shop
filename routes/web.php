@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,5 +31,5 @@ Route::middleware([
         ->missing(function (Request $request) {
             return Redirect::route('welcome');
         });
+    Route::resource('users', UserController::class);
 });
-Route::resource('persons', PersonController::class);

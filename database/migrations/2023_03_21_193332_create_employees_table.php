@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('person_id');
-            $table->foreign('person_id', 'employees_person_id_foreign')
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id', 'employees_user_id_foreign')
                 ->references('id')
-                ->on('persons')
+                ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->unique('person_id', 'employees_id_unique');
+            $table->unique('user_id', 'employees_user_id_unique');
             $table->unsignedBigInteger('position_id');
             $table->foreign('position_id', 'employees_position_id_foreign')
                 ->references('id')
